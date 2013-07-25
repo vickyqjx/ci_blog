@@ -38,6 +38,7 @@
             echo form_close();
 
             ?> -->
+            <p>Have a look first <a href="<?php echo base_url().'view/viewUser'; ?>">Go</a></p>
 
         </div>
     </div>

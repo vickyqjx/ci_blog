@@ -13,7 +13,11 @@
             echo $email;
             ?>
 
-            <a href="<?php echo base_url().'user/add_article'; ?>">Add a new article</a>
+            <p>--<a href="<?php echo base_url().'view/blog?username='.$username; ?>">
+                Your Public Blog Page
+            </a></p>
+
+            <p><a href="<?php echo base_url().'user/add_article'; ?>">Add a new article</a></p>
 
             <form action="<?php echo base_url().'user/home'; ?>" method="POST">
                 View by category<select name="category_id">

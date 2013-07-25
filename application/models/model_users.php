@@ -25,6 +25,7 @@ class Model_users extends CI_Model{
 
         $data=array(
             'email'=>$this->input->post('email'),
+            'username'=>$this->input->post('username'),
             'password'=>md5($this->input->post('password')),
             'key'=>$key
         );
@@ -56,6 +57,7 @@ class Model_users extends CI_Model{
             $row=$temp_user->row();
             $data=array(
                 'email'=>$row->email,
+                'username'=>$row->username,
                 'password'=>$row->password
             );
 
@@ -71,4 +73,18 @@ class Model_users extends CI_Model{
         }
     }
 
+    public function get_all(){
+        $query = $this->db->get('users');
+        return $query->result();
+    }
+
+    public function get_user($username){
+        $query = $this->db->get_where('users', array('username' => $username));
+        return $query->row();
+    }
+
+    public function get_user_by_email($email){
+        $query = $this->db->get_where('users', array('email' => $email));
+        return $query->row();
+    }
 }

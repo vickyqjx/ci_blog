@@ -26,6 +26,8 @@ class User extends CI_Controller{
         if($this->session->userdata('is_logged_in')){
             $data['email']=$this->session->userdata('email');
             $this->load->model('model_articles');
+            $this->load->model('model_users');
+            $data['username']=$this->model_users->get_user_by_email($data['email'])->username;
             $data['selected_category']=0;
 
             if(isset($_POST['category_id'])){
@@ -73,10 +75,9 @@ class User extends CI_Controller{
         $this->load->library('form_validation');
 
         $this->form_validation->set_rules("email","Email address","required|trim|valid_email|xxs_clean|is_unique[users.email]");
+        $this->form_validation->set_rules('username', 'Username', 'required|trim|is_unique[users.username]');
         $this->form_validation->set_rules('password', 'Password', 'required|trim');
         $this->form_validation->set_rules('re_password', 'Password Confirmation', 'required|trim|matches[password]');
-
-        $this->form_validation->set_message('is_unique','This email has already exists');
 
         if($this->form_validation->run()){
             //generate a radom key

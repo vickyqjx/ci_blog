@@ -12,6 +12,7 @@
                 echo validation_errors();
                 ?>
                 Email:<input type="text" name="email" value="<?php echo $this->input->post('email') ;?>"/>
+                Username:<input type="text" name="username"/>
                 Password:<input type="password" name="password"/>
                 Confirm Password:<input type="password" name="re_password"/>
                 <input type="submit" value="Sign Up"/>
