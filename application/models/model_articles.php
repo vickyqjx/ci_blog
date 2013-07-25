@@ -17,7 +17,6 @@ class Model_articles extends CI_Model{
         return $query->result();
     }
 
-<<<<<<< HEAD
     public function get_by_category($email,$category_id){
         $query=$this->db->query('SELECT articles.* FROM articles,users,user_article,article_category
         WHERE users.id=user_article.user_id AND user_article.article_id=articles.id
@@ -26,8 +25,6 @@ class Model_articles extends CI_Model{
         return $query->result();
     }
 
-=======
->>>>>>> f9932718fa49ed66a4a84c47fd0d5f02af2a7863
     //Get the most recent added article ID
     public function get_new_id(){
         $this->db->select_max('id', 'max_id');
@@ -53,7 +50,7 @@ class Model_articles extends CI_Model{
             $query2=$this->db->get('users');
             $user_id=$query2->row()->id;
 
-           //add to Table 'user_article'
+            //add to Table 'user_article'
             $data=array(
                 'user_id'=>$user_id,
                 'article_id'=>$article_id,
@@ -109,7 +106,6 @@ class Model_articles extends CI_Model{
 
         if($this->db->update('articles', $data, array('id'=>$article_id))){
             //update Table "article_category"
-<<<<<<< HEAD
             if($this->input->post('category')==null){
                 return true;
             }else{
@@ -123,15 +119,6 @@ class Model_articles extends CI_Model{
                 }else{
                     return false;
                 }
-=======
-            $article_category_id=$this->input->post('article_category_id');
-            $data2=array(
-                'article_id'=>$article_id,
-                'category_id'=>$this->input->post('category')
-            );
-            if($this->db->update('article_category', $data2, array('id'=>$article_category_id))){
-                return true;
->>>>>>> f9932718fa49ed66a4a84c47fd0d5f02af2a7863
             }
         }else{
             return false;
