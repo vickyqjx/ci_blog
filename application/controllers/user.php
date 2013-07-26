@@ -139,7 +139,7 @@ class User extends CI_Controller{
                     'is_logged_in'=>1
                 );
                 $this->session->set_userdata($data);
-                redirect('user/home');
+                redirect('user/sign_in');
             }else{
                 echo "Failed to add user,please try again!";
             }

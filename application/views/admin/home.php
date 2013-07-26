@@ -7,7 +7,10 @@
     <div class="container">
         <div class="content">
             <h1>Admin Home Page</h1>
-         Hello, <?php echo $name; ?>!
+        <p>Hello, <?php echo $name; ?>!<a href="<?php echo base_url().'admin/logout'; ?>">Logout</a></p>
+            <ul>
+                <li><a href="<?php echo base_url().'admin/view_category'; ?>">Manage Blog Categories</a></li>
+            </ul>
         </div>
     </div>
     </body>

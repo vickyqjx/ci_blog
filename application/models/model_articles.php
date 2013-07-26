@@ -95,6 +95,21 @@ class Model_articles extends CI_Model{
         return $query->result();
     }
 
+    //Add new category in the Database
+    public function add_category(){
+        $data=array(
+            'name'=>$this->input->post('category_name'),
+        );
+
+        $query=$this->db->insert('categories',$data);
+
+        if($query){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
     //Update article
     public function update_article(){
         //Update Table "articles"

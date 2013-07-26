@@ -49,6 +49,12 @@ class Model_users extends CI_Model{
         }
     }
 
+    public function get_tmp_user($key){
+        $this->db->where('key',$key);
+        $query=$this->db->get('temp_users');
+        return $query->row();
+    }
+
     public function add_user($key){
         $this->db->where('key',$key);
         $temp_user=$this->db->get('temp_users');

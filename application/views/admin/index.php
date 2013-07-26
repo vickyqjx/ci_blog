@@ -11,7 +11,7 @@
                 <?php
                 echo validation_errors();
                 ?>
-                Admin Name:<input type="text" name="name" value="<?php echo $this->input->post('usermane') ;?>"/>
+                Admin Name:<input type="text" name="name" value="<?php echo $this->input->post('username') ;?>"/>
                 Password:<input type="password" name="password"/>
                 <input type="submit" value="Sign In"/>
             </form>

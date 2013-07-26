@@ -21,6 +21,8 @@ class Admin extends CI_Controller{
         if($this->session->userdata('logged_in')){
             $data['name']=$this->session->userdata('name');
             $this->load->view('admin/home',$data);
+        }else{
+            redirect('user/restricted');
         }
     }
 
@@ -54,6 +56,44 @@ class Admin extends CI_Controller{
         }else{
             $this->form_validation->set_message('validate_credentials','Incorrect username/password');
             return false;
+        }
+    }
+
+    public function logout(){
+        $this->session->sess_destroy();
+        redirect('admin/login');
+    }
+
+    public function view_category(){
+        if($this->session->userdata('logged_in')){
+            $data['name']=$this->session->userdata('name');
+            $this->load->model('model_articles');
+            $data['categories']=$this->model_articles->get_categories();
+            $this->load->view('admin/category',$data);
+        }else{
+            redirect('user/restricted');
+        }
+    }
+
+    public function add_category(){
+        if($this->session->userdata('logged_in')){
+            $data['name']=$this->session->userdata('name');
+            $this->load->model('model_articles');
+
+            $this->load->library('form_validation');
+            $this->form_validation->set_rules('category_name','Category','required|is_unique[categories.name]');
+
+            if($this->form_validation->run()){
+                $this->model_articles->add_category();
+                $data['categories']=$this->model_articles->get_categories();
+                $this->load->view('admin/category',$data);
+            }
+            else{
+                $data['categories']=$this->model_articles->get_categories();
+                $this->load->view('admin/category',$data);
+            }
+        }else{
+            redirect('user/restricted');
         }
     }
 

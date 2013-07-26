@@ -12,9 +12,9 @@
             <?php
             echo $email;
             ?>
-
+            Your Public Blog Page url is
             <p>--<a href="<?php echo base_url().'view/blog?username='.$username; ?>">
-                Your Public Blog Page
+                    <?php echo base_url().'view/blog?username='.$username; ?>
             </a></p>
 
             <p><a href="<?php echo base_url().'user/add_article'; ?>">Add a new article</a></p>
