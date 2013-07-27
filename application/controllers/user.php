@@ -98,11 +98,14 @@ class User extends CI_Controller{
             //send an email to the user
             if($this->model_users->add_temp_user($key)){
                 if($this->email->send()){
-                    echo "The email has been sent!";
+                    $data['message']="The email has been sent!";
                 }else{
-                    echo "The email could not be sent!";
+                    $data['message']= "The email could not be sent!";
                 }
-            }else echo "problem adding to database";
+            }else{
+                $data['message']="problem adding to database";
+            }
+            $this->load->view('user/signup_message',$data);
 
             //add this user to temp_users databse
 

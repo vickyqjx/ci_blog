@@ -30,11 +30,8 @@
         <div class="content">
             <div class="proper-content">
                 <div class="text-info text-center">
-                <h2>You do not have right to access this page!</h2>
+                    <h2><?php echo $message ?></h2>
                 </div>
-                <p class="text-center">
-                    <a href="<?php echo base_url().'user/sign_in'; ?>">Sign in</a>
-                </p>
             </div>
         </div>
     </div>

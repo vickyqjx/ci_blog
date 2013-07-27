@@ -1,47 +1,66 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="utf-8">
-    <title>Login Page</title>
-    <body>
-    <div class="container">
-        <div class="content">
-            <h1>Login Page</h1>
-            <form action="<?php echo base_url().'user/login_validation'; ?>" method="post" autocomplete="off">
-                <?php
-                echo validation_errors();
-                ?>
-                Email:<input type="text" name="email" value="<?php echo $this->input->post('email') ;?>"/>
-                Password:<input type="password" name="password"/>
-                <input type="submit" value="Sign In"/>
-            </form>
-            <a href="<?php echo base_url().'user/sign_up'; ?>">Sign Up</a>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CI Blog-User login</title>
+    <link rel="stylesheet" href="<?php echo base_url().'css/bootstrap.css'; ?>">
+    <link rel="stylesheet" href="<?php echo base_url().'css/bootstrap-responsive.css'; ?>">
+    <link rel="stylesheet" href="<?php echo base_url().'css/ci_blog.css'; ?>">
+    <style>
+        body{
+            background-image:url('<?php echo base_url().'img/background_user.png'; ?>') ;
+            background-repeat: repeat ;
+        }
+    </style>
+</head>
 
-            <!-- <?php
+<body>
 
-            echo form_open('user/login_validation');
-
-            echo validation_errors();
-
-            echo "<p>Email:";
-            echo form_input('email');
-            echo "</p>";
-
-            echo "<p>Password";
-            echo form_password('password');
-            echo "</p>";
-
-            echo "<p>";
-            echo form_submit('login_submit','Sign In');
-            echo "</p>";
-
-            echo form_close();
-
-            ?> -->
-            <p>Have a look first <a href="<?php echo base_url().'view/viewUser'; ?>">Go</a></p>
-
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <a href="<?php echo base_url().'user'; ?>" class="brand">CI Blog</a>
         </div>
     </div>
-    </body>
-</head>
+</div>
+
+<div class="wrapper">
+    <div class="container">
+        <div class="content">
+            <div class="proper-content">
+                <form class="form" action="<?php echo base_url().'user/login_validation'; ?>" method="post" autocomplete="off">
+                    <legend>Login</legend>
+                    <div class="text-error"><small><?php echo validation_errors();?></small></div>
+                    <input type="text" class="input-block-level" placeholder="Email address"
+                           name="email" value="<?php echo $this->input->post('email') ;?>"/>
+                    <input type="password" class="input-block-level" placeholder="Password" name="password"/>
+                    <p class="text-right">
+                        <input type="submit" class="btn btn-primary" value="Sign in"/>
+                        <a href="<?php echo base_url().'user/sign_up'; ?>">Sign up</a>
+                    </p>
+                    <p class="text-right">
+                        <small>
+                            Just have a look?
+                            <a href="<?php echo base_url().'view/viewUser'; ?>">Go</a>
+                        </small>
+                    </p>
+
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="push"></div>
+</div>
+
+<div class="modal-footer footer-wrapper">
+    <p class="muted text-center">
+        Copyright @ 2013 VickyQiu
+        <a href="<?php echo base_url().'admin/login'; ?>">Admin</a>
+    </p>
+</div>
+
+<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+<script src="<?php echo base_url().'js/bootstrap.js'; ?>"></script>
+</body>
 </html>
