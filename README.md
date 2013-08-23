@@ -12,5 +12,5 @@ There are three different users for this system - Unregistered User, Registered 
 3.Edit articles belong to this user's own blog     
 4.Delete articles belong to this user's own blog                     
 
---System Admin:                  
+--System Admin(Username:admin, password:admin):                  
 1.Add new article categories for Registered Users to select
