@@ -44,12 +44,13 @@
                     <input type="password" class="input-block-level" name="re_password"/>
                     <p class="text-right">
                         <input type="submit" class="btn btn-primary" value="Sign Up"/>
-                        <a href="<?php echo base_url().'user/sign_in'; ?>">Sign in</a>
+
                     </p>
                     <p class="text-right">
                         <small>
-                            Just have a look?
-                            <a href="<?php echo base_url().'view/viewUser'; ?>">Go</a>
+                            <a href="<?php echo base_url().'user/sign_in'; ?>">Sign in</a>,
+                            or just
+                            <a href="<?php echo base_url().'view/viewUser'; ?>">have a look</a>
                         </small>
                     </p>
 

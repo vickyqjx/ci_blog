@@ -38,7 +38,7 @@ class Model_articles extends CI_Model{
         //add to Table 'articles'
         $data=array(
             'title'=>$this->input->post('title'),
-            'content'=>$this->input->post('content'),
+            'content'=>nl2br(htmlentities($this->input->post('content'))),
             'time'=>$date
         );
         $query=$this->db->insert('articles',$data);
@@ -116,7 +116,7 @@ class Model_articles extends CI_Model{
         $article_id=$this->input->post('article_id');
         $data=array(
             'title'=>$this->input->post('title'),
-            'content'=>$this->input->post('content')
+            'content'=>nl2br(htmlentities($this->input->post('content'))),
         );
 
         if($this->db->update('articles', $data, array('id'=>$article_id))){

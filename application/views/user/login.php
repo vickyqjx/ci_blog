@@ -29,6 +29,7 @@
     <div class="container">
         <div class="content">
             <div class="proper-content">
+
                 <form class="form" action="<?php echo base_url().'user/login_validation'; ?>" method="post" autocomplete="off">
                     <legend>Login</legend>
                     <div class="text-error"><small><?php echo validation_errors();?></small></div>
@@ -37,12 +38,13 @@
                     <input type="password" class="input-block-level" placeholder="Password" name="password"/>
                     <p class="text-right">
                         <input type="submit" class="btn btn-primary" value="Sign in"/>
-                        <a href="<?php echo base_url().'user/sign_up'; ?>">Sign up</a>
+
                     </p>
                     <p class="text-right">
                         <small>
-                            Just have a look?
-                            <a href="<?php echo base_url().'view/viewUser'; ?>">Go</a>
+                            <a href="<?php echo base_url().'user/sign_up'; ?>">Sign up</a>,
+                            or just
+                            <a href="<?php echo base_url().'view/viewUser'; ?>">have a look</a>
                         </small>
                     </p>
 
